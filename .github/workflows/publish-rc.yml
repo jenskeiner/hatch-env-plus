@@ -15,8 +15,8 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  PACKAGE_NAME: hatchling-version-source-env
-  MODULE_NAME: hatchling_version_source_env
+  PACKAGE_NAME: hatch-env-plus
+  MODULE_NAME: hatch_env_plus
   PYTHON_VERSION: "3.12"
 
 jobs:

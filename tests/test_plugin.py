@@ -3,7 +3,7 @@ import os
 import pytest
 
 from hatchling.version.source.plugin.interface import VersionSourceInterface
-from hatchling_version_source_env import EnvironmentVariableVersionSource
+from hatch_env_plus import EnvironmentVariableVersionSource
 
 
 def test_plugin_is_version_source():
@@ -11,7 +11,7 @@ def test_plugin_is_version_source():
 
 
 def test_plugin_name():
-    assert EnvironmentVariableVersionSource.PLUGIN_NAME == 'env+'
+    assert EnvironmentVariableVersionSource.PLUGIN_NAME == 'env-plus'
 
 
 def test_version_from_env_var():
@@ -29,7 +29,7 @@ def test_fallback_when_env_var_not_set():
     with pytest.MonkeyPatch().context() as m:
         m.delenv('PACKAGE_VERSION', raising=False)
         data = plugin.get_version_data()
-    assert data == {'version': '0.0.0'}
+    assert data == {'version': '0.0.0dev0'}
 
 
 def test_custom_env_var_name():

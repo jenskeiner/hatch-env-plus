@@ -130,3 +130,6 @@ dmypy.json
 
 # Ruff linter cache
 .ruff_cache
+
+# JetBrains
+.idea
