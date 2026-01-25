@@ -1,7 +1,6 @@
 [project]
 name = "hatch-env-plus"
-#dynamic = ["version"]
-version = "0.1.0"
+dynamic = ["version"]
 description = "A version source for Hatchling that reads the version from a given environment variable, but also allows for a fallback if the variable is not populated."
 authors = [
     { name = "Jens Keiner", email = "jens.keiner@gmail.com" }
@@ -60,9 +59,9 @@ exclude = [
 sources = ["src"]
 only-include = ["src/hatch_env_plus"]
 
-#[tool.hatch.version]
-#source = "env"
-#variable = "PACKAGE_VERSION"
+[tool.hatch.version]
+source = "env"
+variable = "PACKAGE_VERSION"
 
 [tool.pytest.ini_options]
 addopts = "--cov=hatch_env_plus --cov-report=term-missing --cov-report=html"
