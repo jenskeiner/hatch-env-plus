@@ -17,12 +17,13 @@ concurrency:
 env:
   PACKAGE_NAME: hatch-env-plus
   MODULE_NAME: hatch_env_plus
-  PYTHON_VERSION: "3.12"
+  PYTHON_VERSION: "3.13"
 
 jobs:
   build-and-publish:
     name: Build and publish release candidate Python distribution to TestPyPI.
     runs-on: ubuntu-latest
+    environment: testpypi
     permissions:
       id-token: write  # Required for trusted publishing.
     steps:
