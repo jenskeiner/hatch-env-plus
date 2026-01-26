@@ -30,7 +30,7 @@ Then, configure the version source:
 [tool.hatch.version]
 source = "env-plus"
 variable = "PACKAGE_VERSION"  # optional, default shown
-fallback = "0.0.0dev0"            # optional, default shown
+fallback = "0.0.0dev0"  # optional, default shown
 ```
 
 Use the `variable` field to set the environment variable to use and set `fallback` to the desired fallback version. 
