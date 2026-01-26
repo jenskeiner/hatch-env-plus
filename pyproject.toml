@@ -24,8 +24,7 @@ classifiers = [
     "Framework :: Hatch",
 ]
 dependencies = [
-    # Package dependencies go here, e.g.
-    # "pandas>=1,<3",
+    # Package dependencies go here.
 ]
 
 [project.urls]
@@ -42,7 +41,7 @@ dev = [
 ]
 
 [build-system]
-requires = ["hatchling>=1.21.1"]
+requires = ["hatchling>=1.21.1", "hatch-env-plus>=0.1.0"]
 build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.sdist]
@@ -60,8 +59,7 @@ sources = ["src"]
 only-include = ["src/hatch_env_plus"]
 
 [tool.hatch.version]
-source = "env"
-variable = "PACKAGE_VERSION"
+source = "env-plus"
 
 [tool.pytest.ini_options]
 addopts = "--cov=hatch_env_plus --cov-report=term-missing --cov-report=html"

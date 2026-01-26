@@ -129,7 +129,6 @@ wheels = [
 
 [[package]]
 name = "hatch-env-plus"
-version = "0.1.0"
 source = { editable = "." }
 
 [package.dev-dependencies]
