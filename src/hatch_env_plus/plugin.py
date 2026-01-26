@@ -8,7 +8,7 @@ class EnvironmentVariableVersionSource(VersionSourceInterface):
 
     def get_version_data(self) -> dict:
         variable = self.config.get('variable', 'PACKAGE_VERSION')
-        fallback = self.config.get('fallback', '0.0.0dev0')
+        fallback = self.config.get('fallback', '0.0.0dev0') or None
         version = os.environ.get(variable, fallback)
         return {'version': version}
 

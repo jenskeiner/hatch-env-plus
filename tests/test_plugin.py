@@ -1,5 +1,3 @@
-import os
-
 import pytest
 
 from hatchling.version.source.plugin.interface import VersionSourceInterface
@@ -63,3 +61,12 @@ def test_env_var_takes_precedence_over_fallback():
         # Set - uses env var
         m.setenv('CUSTOM_VER', '5.0.0')
         assert plugin.get_version_data() == {'version': '5.0.0'}
+
+
+def test_empty_fallback_string_treated_as_none():
+    """Empty fallback string is converted to None."""
+    plugin = EnvironmentVariableVersionSource('', {'fallback': ''})
+    with pytest.MonkeyPatch().context() as m:
+        m.delenv('PACKAGE_VERSION', raising=False)
+        data = plugin.get_version_data()
+    assert data == {'version': None}

@@ -1,7 +1,7 @@
 # Hatchling Environment Variable Version Source
 
 A Hatchling version source plugin that reads the version from an environment variable with a configurable fallback value,
-since the built-in environment variable version source does not allow to define a fallback.
+since the built-in `env` version source does not allow to define a fallback.
 
 ## Installation
 
@@ -30,13 +30,17 @@ Then, configure the version source:
 [tool.hatch.version]
 source = "env-plus"
 variable = "PACKAGE_VERSION"  # optional, default shown
-fallback = "0.0.0dev0"            # optional, default shown
+fallback = "0.0.0dev0"  # optional, default shown
 ```
 
-Use the `variable` field to set the environment variable to use and set `fallback` to the desired fallback version. 
+Use the `variable` field to set the environment variable to use, and set `fallback` to the desired fallback version.
 
-**Note: An empty version string is treated as undefined. Therefore, this will throw an error if the configured environment
-variable as well as the fallback are both empty.**
+**Note: An empty string, whether from the configured environment variable or from the fallback, is an 
+undefined version.**
+
+If you explicitly set the configured environment variable to the empty string, your build will fail as no valid version
+is set. If you explicitly set `fallback` to an empty string, your build will fail when the configured environment 
+variable is not set. This is the default behavior of Hatchling's built-in enviroment variable version source `env`.  
 
 ## Usage
 
