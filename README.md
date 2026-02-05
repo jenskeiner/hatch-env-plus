@@ -1,7 +1,8 @@
 # Hatchling Environment Variable Version Source
 
-A Hatchling version source plugin that reads the version from an environment variable with a configurable fallback value,
-since the built-in `env` version source does not allow to define a fallback.
+A [Hatchling](https://github.com/pypa/hatch) version source plugin that reads the version from an environment variable
+with a configurable fallback value, since the built-in [`env`](https://hatch.pypa.io/latest/plugins/version-source/env/)
+version source does not allow to define a fallback.
 
 ## Installation
 
@@ -35,12 +36,13 @@ fallback = "0.0.0dev0"  # optional, default shown
 
 Use the `variable` field to set the environment variable to use, and set `fallback` to the desired fallback version.
 
-**Note: An empty string, whether from the configured environment variable or from the fallback, is an 
+**Note: An empty string, whether from the configured environment variable or from the fallback, is an
 undefined version.**
 
 If you explicitly set the configured environment variable to the empty string, your build will fail as no valid version
-is set. If you explicitly set `fallback` to an empty string, your build will fail when the configured environment 
-variable is not set. This is the default behavior of Hatchling's built-in enviroment variable version source `env`.  
+is set. If you explicitly set `fallback` to an empty string, your build will fail when the configured environment
+variable is not set. This is the default behavior of [Hatchling]([Hatchling](https://github.com/pypa/hatch))'s built-in
+enviroment variable version source [`env`](https://hatch.pypa.io/latest/plugins/version-source/env/).
 
 ## Usage
 
